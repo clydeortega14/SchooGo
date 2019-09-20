@@ -7,7 +7,7 @@
         <title>{{ config('app.name') }} | Landing Page</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=SegoeUI&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Segoe UI&display=swap" rel="stylesheet">
         
         <!-- Bootstrap 4.3.1 -->
         <link href="/css/bootstrap.css" rel="stylesheet">
