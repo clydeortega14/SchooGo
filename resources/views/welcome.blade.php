@@ -25,7 +25,7 @@
     <body>
         
         {{-- NAVIGATION BAR --}}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -69,8 +69,6 @@
                     </ul>
                 </div>
             </div>
-    
-            
         </nav>
     
         {{-- IMAGE SLIDER --}}
@@ -151,19 +149,19 @@
         <div class="container-fluid padding">
             <div class="row text-center padding">
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <i class="fa fa-code"></i>
+                    <i class="fa fa-code fa-4x"></i>
                     <h3>HTML5</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequuntur praesentium cum ipsam quisquam nam facere sed quibusdam assumenda. Voluptas est neque, recusandae ipsum. Reiciendis consequuntur possimus quod, nostrum natus.</p>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <i class="fa fa-bold"></i>
+                    <i class="fa fa-bold fa-4x"></i>
                     <h3>BOOTSTRAP 4</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequuntur praesentium cum ipsam quisquam nam facere sed quibusdam assumenda. Voluptas est neque, recusandae ipsum. Reiciendis consequuntur possimus quod, nostrum natus.</p>
                 </div>
 
                 <div class="col-md-4">
-                    <i class="fa fa-css3"></i>
+                    <i class="fa fa-css3 fa-4x"></i>
                     <h3>CSS3</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequuntur praesentium cum ipsam quisquam nam facere sed quibusdam assumenda. Voluptas est neque, recusandae ipsum. Reiciendis consequuntur possimus quod, nostrum natus.</p>
                 </div>
@@ -300,7 +298,6 @@
         {{-- CONNECT --}}
         <div class="container-fluid padding">
             <div class="row text-center padding">
-
                 <div class="col-12">
                     <h2>Connect</h2>
                 </div>
@@ -308,7 +305,7 @@
                 <div class="col-12 social padding">
                     <a href="#"><i class="fa fa-facebook"></i></a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
                     <a href="#"><i class="fa fa-instagram"></i></a>
                     <a href="#"><i class="fa fa-youtube"></i></a>
                 </div>
@@ -350,8 +347,8 @@
                     </div>
 
                     <div class="col-12">
-                        <hr class="light">
-                        <h5>&copy; SchooGo.org</h5>
+                        <hr class="light-100">
+                        <h5>&copy; SchooGo 2019.All rights reserved</h5>
                     </div>
                 </div>
             </div>
