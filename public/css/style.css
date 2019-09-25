@@ -7,6 +7,8 @@ html body {
     color : #222;
 }
 
+/* ------ NAVBAR ------------*/
+
 .navbar {
 
     padding : .8rem;
@@ -20,6 +22,9 @@ html body {
     font-size: 1.1em !important;
 
 }
+
+
+/* ----------- CAROUSEL ------------ */
 .carousel-inner img {
     width: 100%;
     height: 100%;
@@ -41,6 +46,8 @@ html body {
     font-weight : 200px;
     text-shadow : 1px 1px 15px #000;
 }
+
+/* ------------- BUTTONS ---------------*/
 .btn-primary {
 
     background-color: #3CB371;
@@ -51,11 +58,35 @@ html body {
     background-color: #228B22; 
     border: #008000;
 }
+
+
+/* ---------- CARDS ------------------*/
 .card-img-top {
     
-    height: 200px;
-    width: 100%;
+    height: auto;
+    max-width: 100%;
 }
+
+
+/* ------ TABLES ------------*/
+.table img {
+
+    height: auto;
+    max-width: 75%;
+}
+.table th, td {
+
+  text-align: center;
+}
+.table th {
+
+    padding: 20px 0;
+}
+
+
+
+/* -------------- ANOTHER CUSTOMIZATION --------------------*/
+
 .jumbotron {
 
     padding: 1rem;
@@ -139,10 +170,6 @@ hr.light-100 {
     margin-top: .8rem;
     margin-bottom: 1rem;
 }
-.card-title.price {
-
-    color: mediumseagreen;
-}
 
 
 /* -------- MEDIA QUERIES -----------*/
@@ -174,10 +201,6 @@ hr.light-100 {
     .display-4{
 
         font-size: 200%;
-    }
-    .price {
-
-        font-size: 20px;
     }
 }
 

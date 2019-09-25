@@ -15,7 +15,9 @@ Route::get('/', 'LandingPageController@index')->name('landing.page');
 
 Route::resource('products', 'ProductsController');
 
-Route::get('orders', 'OrdersController@index');
+Route::resource('orders', 'OrdersController');
+
+Route::resource('checkout', 'CheckoutController');
 
 Auth::routes();
 

@@ -3,16 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
 
-class ProductsController extends Controller
+class CheckoutController extends Controller
 {
-
-    public function __construct()
-    {
-
-        $this->categories = Category::all();
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +13,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('guest.pages.products')->with('categories', $this->categories);
+        return view('guest.pages.checkout');
     }
 
     /**
