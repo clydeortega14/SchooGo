@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cart;
 
 class CheckoutController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->cart = Cart::all();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('guest.pages.checkout');
+        return view('guest.pages.checkout')->with('carts', $this->cart);
     }
 
     /**

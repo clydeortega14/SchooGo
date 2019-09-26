@@ -10,6 +10,12 @@ class Product extends Model
 
     protected $fillable = ['product_name', 'product_description', 'product_description', 'category_id', 'department_id', 'price', 'quantity'];
 
+
+    public function presentPrice()
+    {
+        return number_format($this->price, 2);
+    }
+
     public function category()
     {
     	return $this->belongsTo('App\Category', 'category_id', 'id');

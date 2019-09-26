@@ -2,13 +2,25 @@
 
 @section('title', 'My Cart')
 
+@section('custom_css')
+<style type="text/css">
+	
+	td {
+
+		font-size: 1.2rem;
+	}
+</style>
+
+@endsection
+
 @section('content')
 
 <div class="container">
 	<div class="row padding">
+
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<div class="table-responsive">
-				<table class="table table-striped">
+				<table class="table">
 
 				    <thead class="thead-light">
 				      <tr>
@@ -22,59 +34,25 @@
 				    </thead>
 
 				    <tbody>
-				      <tr>
-				        <td>
-				        	<img src="/assets/images/avatar/avatar2.jpg" alt="...">
-				        </td>
-				        <td>
-				        	Asus Zenbook
-				        </td>
-				        <td class="price">29, 000</td>
-				        <td>
-				        	<input type="number" min="1" value="1" class="form-control">
-				        </td>
-				        <td class="price">29, 000</td>
-				        <td>
-				        	<button type="button" class="btn btn-outline-secondary btn-sm">
-				        		<i class="fa fa-trash"></i>
-				        	</button>
-				        </td>
-				      </tr>
-				      <tr>
-				        <td>
-				        	<img src="/assets/images/avatar/avatar1.jpg" alt="...">
-				        </td>
-				        <td>Pencil Case</td>
-				        <td class="price">30.00</td>
-				        <td>
-				        	<input type="number" min="1" value="3" class="form-control">
-				        </td>
-				        <td class="price">90.00</td>
-				        <td>
-				        	<button type="button" class="btn btn-outline-secondary btn-sm">
-				        		<i class="fa fa-trash"></i>
-				        	</button>
-				        </td>
-				      </tr>
-				      <tr>
-				        <td>
-				        	<img src="/assets/images/avatar/person3.jpg" alt="...">
-				        </td>
-				        <td>Book Of Enoch</td>
-				        <td class="price">150.00</td>
-				        <td>
-				        	<input type="number" min="1" value="4" class="form-control">
-				        </td>
-				        <td class="price">600.00 </td>
-				        <td>
-				        	<button type="button" class="btn btn-outline-secondary btn-sm">
-				        		<i class="fa fa-trash"></i>
-				        	</button>
-				        </td>
-				      </tr>
+				    	@foreach($carts as $cart)
+					      	<tr>
+						        <td>
+						        	<img src="/assets/images/products/bible.jpg" alt="..." height="195" width="195">
+						        </td>
+						        <td>{{ $cart->products->product_name }}</td>
+						        <td> &#8369; {{ $cart->products->presentPrice() }}</td>
+						        <td>{{ $cart->quantity}}</td>
+						        <td> &#8369; {{ $cart->presentPrice() }}</td>
+						        <td>
+						        	<button type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="delete">
+						        		<i class="fa fa-trash"></i>
+						        	</button>
+						        </td>
+					      	</tr>
+				      	@endforeach
 				    </tbody>
-				  </table>
-			  </div>
+				</table>
+			</div>
 		</div>
 
 		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
@@ -96,30 +74,42 @@
 	</div>
 
 	<div class="row padding">
-		<div class="col-md-12">
+		<div class="col-md-6">
 			<table class="table table-striped">
 				<tbody>
 					<tr>
 						<td style="text-align:left;">Subtotal</td>
-						<td style="text-align:right;">29, 000.00</td>
+						<td style="text-align:right;">
+							{{ number_format($carts->sum('total'), 2) }}
+							<input type="hidden" value="{{ number_format($carts->sum('total'), 2) }}" name="subtotal">
+						</td>
 					</tr>
 
 					<tr>
 						<td style="text-align:left;">Tax</td>
-						<td style="text-align:right;">0.00</td>
+						<td style="text-align:right;">
+							0.00
+							<input type="hidden" value="0.00" name="tax">
+						</td>
 					</tr>
 
 					<tr>
 						<td style="text-align:left;">Total</td>
-						<td style="text-align:right;">29, 000.00</td>
+						<td style="text-align:right;" id="total">
+							29, 000.00
+							<input type="hidden" name="total">
+						</td>
 					</tr>
 				</tbody>
 			</table>
+
+			<a href="{{ route('checkout.index') }}" class="btn btn-primary btn-lg">Proceed to checkout</a>
 		</div>
 		
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-			<a href="{{ route('checkout.index') }}" class="btn btn-primary btn-md">Proceed to checkout</a>
+		<div class="col-md-6">
+			
 		</div>
 	</div>
 </div>
+
 @stop

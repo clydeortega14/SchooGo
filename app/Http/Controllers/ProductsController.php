@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Product;
 
 class ProductsController extends Controller
 {
@@ -12,6 +13,8 @@ class ProductsController extends Controller
     {
 
         $this->categories = Category::all();
+
+        $this->products   = Product::inRandomOrder()->take(4)->get();
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +23,12 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('guest.pages.products')->with('categories', $this->categories);
+        return view('guest.pages.products.index')
+
+            ->with('products', $this->products)
+
+            ->with('categories', $this->categories);
+        
     }
 
     /**
@@ -52,7 +60,11 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return view('guest.pages.products.show')
+            ->with('products', $this->products)
+            ->with('product', $product);
     }
 
     /**

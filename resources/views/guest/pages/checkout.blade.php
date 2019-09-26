@@ -5,13 +5,11 @@
 @section('custom_css')
 
 <style>
-	
 	#credit-card {
 		
 		padding: 18px;
 
 	}
-
 </style>
 
 @section('content')
@@ -22,7 +20,7 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header">
-					<h5 class="card-title">Checkout</h5>
+					<h5 class="card-title">Checkout </h5>
 				</div>
 
 				<div class="card-body">
@@ -34,18 +32,12 @@
 								<h5>Your Cart</h5>
 								<hr>
 								<ul class="list-group">
-								  <li class="list-group-item d-flex justify-content-between align-items-center">
-								    The Book of Enoch
-								    <span>29, 000. 00</span>
-								  </li>
-								  <li class="list-group-item d-flex justify-content-between align-items-center">
-								    Macbook Pro 7
-								    <span>3, 000. 00</span>
-								  </li>
-								  <li class="list-group-item d-flex justify-content-between align-items-center">
-								    Pencil Case
-								    <span>100.00</span>
-								  </li>
+									@foreach($carts as $cart)
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+										    {{ $cart->products->product_name}}
+										    <span> &#8369; {{ $cart->presentPrice() }}</span>
+										  </li>
+									@endforeach
 								</ul>
 								<br>
 								
@@ -54,7 +46,7 @@
 								<ul class="list-group">
 								  	<li class="list-group-item d-flex justify-content-between align-items-center">
 								    	Subtotal
-								    	<span>32, 100.00</span>
+								    	<span> &#8369; {{ number_format($carts->sum('total'),2) }}</span>
 								  	</li>
 
 									<li class="list-group-item d-flex justify-content-between align-items-center">
@@ -107,7 +99,7 @@
 									<label>Address</label>
 									<input type="text" name="addreess" class="form-control">
 								</div>
-
+								
 								<div class="form-group">
 									<label>City</label>
 									<select type="combobox" name="city" class="form-control">
@@ -118,6 +110,7 @@
 										<option value="3"> Mandaue City </option>
 									</select>
 								</div>
+
 								<div class="form-group">
 									<label>Zip Code</label>
 									<input type="text" name="zip_code" class="form-control">
@@ -185,7 +178,6 @@
 				</div>
 			</div>
 		</div>
-		
 	</div>
 </div>
 
