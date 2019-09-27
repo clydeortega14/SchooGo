@@ -14,7 +14,7 @@ class ProductsController extends Controller
 
         $this->categories = Category::all();
 
-        $this->products   = Product::inRandomOrder()->take(4)->get();
+        $this->products   = Product::inRandomOrder()->get();
     }
     /**
      * Display a listing of the resource.

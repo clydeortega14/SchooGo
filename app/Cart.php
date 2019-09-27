@@ -14,8 +14,13 @@ class Cart extends Model
     {
     	return number_format($this->total, 2);
     }
+
+    public function totalPrice()
+    {
+        return sum($this->total);
+    }
     public function products()
     {
-    	return $this->hasOne('App\Product', 'id');
+    	return $this->hasOne('App\Product', 'id', 'product_id');
     }
 }

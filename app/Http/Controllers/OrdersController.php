@@ -43,21 +43,27 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-
-        //check if product already exist in the cart
-        $item = Cart::findOrFail($request->prod_id);
-
-        if(!is_null($item)){
-
-            return redirect()->route('products.show', $request->prod_id)->with('error', 'Item has already been added to your cart, please select another one');
-        }
-
+        
         $total = $request->prod_price;
 
         if($request->quantity > 1){
 
             //MULTIPLY PRODUCT PRICE TO QUANITY
             $total*=$request->quantity;
+        }
+
+        $item = Cart::where('product_id', $request->prod_id)->first();
+
+        if(!is_null($item)){
+
+            $totalQty = $item->quantity + $request->quantity;
+
+            Cart::where('product_id', $request->prod_id)->update([
+                'quantity' => $totalQty,
+                'total' => $request->prod_price * $totalQty
+            ]);
+
+            return redirect()->route('orders.index')->with('success_message', 'Item already exist, it has been updated');
         }
 
         Cart::create([
@@ -67,10 +73,7 @@ class OrdersController extends Controller
             'total'      => $total
         ]);
 
-        return redirect()->route('orders.index')->with('message', 'New Item has been added to your cart');
-
-        
-
+        return redirect()->route('orders.index')->with('success_message', 'New Item has been added to your cart');
     }
 
     /**
@@ -115,6 +118,8 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::where('id', $id)->delete();
+
+        return back()->with('success_message', 'You have deleted an item in your cart');
     }
 }

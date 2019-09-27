@@ -2,9 +2,7 @@
 
 @section('title', 'Landing Page')
 
-
 @section('content')
-	
 	<div class="container-fluid padding">
 		<div class="row padding">
 			<div class="col-md-3">

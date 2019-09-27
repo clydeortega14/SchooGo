@@ -46,28 +46,28 @@
 								<ul class="list-group">
 								  	<li class="list-group-item d-flex justify-content-between align-items-center">
 								    	Subtotal
-								    	<span> &#8369; {{ number_format($carts->sum('total'),2) }}</span>
+								    	<span> &#8369; {{ $carts->sum('total') }}</span>
 								  	</li>
 
 									<li class="list-group-item d-flex justify-content-between align-items-center">
 									    Tax
-									    <span>0.00</span>
+									    <span class="text-danger"> +  &#8369; {{ $carts->sum('total') * config('app.tax') }}</span>
 									</li>
 
 								  	<li class="list-group-item d-flex justify-content-between align-items-center">
 								    	Total
-								    	<span>32, 100.00</span>
+								    	<span class="text-success"> &#8369; {{ $carts->sum('total') + ( $carts->sum('total') * config('app.tax') ) }}</span>
 								  	</li>
 								</ul>
 								<br>
-								<div class="card card-body">
+								{{-- <div class="card card-body">
 									<div class="input-group">
 									  	<input type="text" class="form-control d-fex justify-content-right" placeholder="Enter Coupon Code">
 									  	<div class="input-group-append">
 									    	<button class="btn btn-secondary" type="button">APPLY CODE</button>
 									  	</div>
 									</div>
-								</div>
+								</div> --}}
 							</div>
 							
 							{{-- BILLING ADDRESS --}}

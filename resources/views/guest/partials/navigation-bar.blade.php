@@ -26,11 +26,11 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign In</a>
+                    <a class="nav-link" href="{{ route('login') }}">Sign In</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Up</a>
+                    <a class="nav-link" href="{{ route('register') }}">Sign Up</a>
                 </li>
             </ul>
         </div>

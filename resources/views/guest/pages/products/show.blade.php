@@ -28,7 +28,9 @@
 			<p>{{ $product->product_description}}</p>
 
 			<form action="{{ route('orders.store') }}" method="POST">
+				
 				@csrf
+
 				<h4> 
 					PHP {{ number_format( $product->price, 2) }}
 					<input type="hidden" name="prod_price" value="{{ number_format($product->price, 2) }}"> 
@@ -47,12 +49,10 @@
 	</div>
 </div>
 
-<div class="container-fluid">
-
+<div class="container-fluid padding">
 	<h3>Some products you might like</h3>
 	<hr>
     <div class="row jumbotron">
-
     	@foreach($products as $p)
 	        <div class="col-sm-6 col-md-3">
 	            <div class="card">
