@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDepartmentsTable extends Migration
+class CreateProductAttributesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateDepartmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('product_attributes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('category_id');
-            $table->string('name');
-            $table->text('description');
-            $table->boolean('status')->default(true);
+            $table->unsignedBigInteger('product_id');
+            $table->string('attribute');
 
-            //foregin key
-            $table->foreign('category_id')->references('id')->on('categories')
+
+            //foreign keys
+            $table->foreign('product_id')->references('id')->on('products')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }
@@ -33,6 +32,6 @@ class CreateDepartmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('product_attributes');
     }
 }

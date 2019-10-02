@@ -19,9 +19,10 @@ class CreateProductsTable extends Migration
             $table->text('product_description')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('department_id');
-            $table->float('price');
+            $table->float('price', 8, 2);
             $table->string('image')->nullable();
             $table->mediumInteger('quantity');
+            $table->boolean('status');
             $table->timestamps();
 
 
