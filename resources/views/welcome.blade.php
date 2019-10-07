@@ -16,7 +16,7 @@
         <script src="/js/bootstrap.js"></script>
 
         <!-- Custom Styles -->
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -25,12 +25,15 @@
     <body>
         
         {{-- NAVIGATION BAR --}}
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
     
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    LOGO HERE
-                </a>
+
+                <ul class="navbar-nav mr-auto">
+                     <li class="nav-item">
+                         <a href="#" class="nav-link">Welcome to <b>E</b> Shop</a>
+                     </li>
+                </ul>
     
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -47,90 +50,13 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Our Story</a>
-                        </li>
-
-                        <li class="nav-item">
                             <a class="nav-link" href="#">Blogs</a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Meet our team</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    
-        {{-- IMAGE SLIDER --}}
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
 
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/images/carousels/carousel-1.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="display-2">First Slide</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A saepe culpa, dolore minima officiis nesciunt natus, rem at. Esse aspernatur architecto quisquam. Error sit cupiditate corporis ut voluptatem voluptas temporibus!</p>
-
-                        <button type="button" class="btn btn-outline-light btn-lg">Features</button>
-                        <button type="button" class="btn btn-primary btn-lg">Get Started</button>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/carousels/carousel-5.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="display-2">Second Slide</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A saepe culpa, dolore minima officiis nesciunt natus, rem at. Esse aspernatur architecto quisquam. Error sit cupiditate corporis ut voluptatem voluptas temporibus!</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/carousels/carousel-3.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="display-2">Third Slide</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A saepe culpa, dolore minima officiis nesciunt natus, rem at. Esse aspernatur architecto quisquam. Error sit cupiditate corporis ut voluptatem voluptas temporibus!</p>
-                    </div>
-                </div>
-            </div>
-
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-        {{-- JUMBOTRON SECTION--}}
-
-        <div class="container-fluid">
-            <div class="row jumbotron">
-                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-10">
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ab id officiis veritatis, dolor, nemo sunt ex veniam in non maxime cumque harum laborum odit, doloremque fuga excepturi quo consequuntur.</p>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xs-2">
-                    <a href="#">
-                        <button type="button" class="btn btn-outline-secondary btn-lg">Web Hosting</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
         {{-- WELCOME SECTION --}}
 
         <div class="container-fluid padding">
@@ -138,7 +64,7 @@
                 <div class="col-12">
                     <h1 class="display-4">Built with ease</h1>
                 </div>
-                <hr>
+                <hr class="my-4">
                 <div class="col-12">
                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, ea! Atque consequatur, et cupiditate commodi quibusdam dolorem, quaerat aliquid accusamus dolores voluptatem dolorum blanditiis reprehenderit suscipit corrupti sequi quia ratione.</p>
                 </div>

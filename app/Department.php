@@ -8,7 +8,12 @@ class Department extends Model
 {
     protected $table = 'departments';
 
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['category_id', 'name', 'description', 'status'];
 
     public $timestamps = false;
+
+    public function category()
+    {
+    	return $this->belongsTo('App\Category', 'category_id', 'id');
+    }
 }

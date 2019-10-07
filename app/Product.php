@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $table = 'products';
 
-    protected $fillable = ['product_name', 'product_description', 'product_description', 'category_id', 'department_id', 'price', 'quantity'];
+    protected $fillable = ['product_name', 'product_description', 'category_id', 'department_id', 'price', 'image', 'quantity', 'status'];
 
 
     public function presentPrice()
@@ -24,5 +24,9 @@ class Product extends Model
     public function department()
     {
     	return $this->belongsTo('App\Department', 'department_id', 'id');
+    }
+    public function attributes()
+    {
+        return $this->hasMany('App\ProductAttribute', 'id');
     }
 }

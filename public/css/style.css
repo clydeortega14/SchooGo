@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 
 html body {
     height: 100%;
     width: 100%;
-    font-family : 'Poppins', sans-serif;
+    font-family : 'Roboto', sans-serif;
     color : #222;
 }
 
 /* ------ NAVBAR ------------*/
 
-.navbar {
+/*.navbar {
 
     padding : .8rem;
 }
@@ -21,7 +21,7 @@ html body {
 .nav-link {
     font-size: 1.1em !important;
 
-}
+}*/
 
 /* ----------- CAROUSEL ------------ */
 .carousel-inner img {

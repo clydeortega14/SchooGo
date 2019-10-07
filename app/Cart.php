@@ -8,7 +8,7 @@ class Cart extends Model
 {
     protected $table = 'carts';
 
-    protected $fillable = ['product_id', 'quantity', 'total'];
+    protected $fillable = ['user_id', 'product_id', 'quantity', 'total', 'confirmed'];
 
     public function presentPrice()
     {
@@ -22,5 +22,9 @@ class Cart extends Model
     public function products()
     {
     	return $this->hasOne('App\Product', 'id', 'product_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 }

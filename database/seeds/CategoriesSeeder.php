@@ -16,12 +16,12 @@ class CategoriesSeeder extends Seeder
 
         	[
         		'name' => 'Books',
-        		'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet esse, corrupti incidunt? Magni maxime expedita ducimus nobis, veritatis, alias repudiandae. Et voluptatum nostrum fugiat, sapiente autem porro numquam. Consequuntur, cum.'
+        		'description' => 'This consist of novels, mythology, horror, and etc ...'
         	],
 
         	[
         		'name' => 'School Supplies',
-        		'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet esse, corrupti incidunt? Magni maxime expedita ducimus nobis, veritatis, alias repudiandae. Et voluptatum nostrum fugiat, sapiente autem porro numquam. Consequuntur, cum.'
+        		'description' => 'you can purchase some school requirements your children needed.'
         	],
 
         ];

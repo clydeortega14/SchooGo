@@ -8,14 +8,6 @@ use App\Product;
 
 class ProductsController extends Controller
 {
-
-    public function __construct()
-    {
-
-        $this->categories = Category::all();
-
-        $this->products   = Product::inRandomOrder()->get();
-    }
     /**
      * Display a listing of the resource.
      *
@@ -23,11 +15,14 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('guest.pages.products.index')
+        // return view('guest.pages.products.index')
 
-            ->with('products', $this->products)
+        //     ->with('products', $this->products)
 
-            ->with('categories', $this->categories);
+        //     ->with('categories', $this->categories);
+        $products = Product::orderBy('created_at', 'desc')->get();
+
+        return view('admin.pages.products.index', compact('products'));
         
     }
 
@@ -38,7 +33,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('admin.pages.products.create');
     }
 
     /**
@@ -58,13 +54,14 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $product = Product::findOrFail($id);
+        // $product = Product::findOrFail($id);
 
-        return view('guest.pages.products.show')
-            ->with('products', $this->products)
-            ->with('product', $product);
+        return view('guest.pages.products.show');
+        
+            // ->with('products', $this->products)
+            // ->with('product', $product);
     }
 
     /**

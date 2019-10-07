@@ -19,25 +19,65 @@
 				</div>
 			</div>
 			
-			<div class="col-md-9">
+			<div class="col-md-9 d-flex align-items-center">
 				<div class="tab-content">
 					<div class="tab-pane active" id="all-categories">
 						<div class="row padding">
-							@foreach($products as $product)
-								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-									<div class="card">
-						                <img class="card-img-top" src="/assets/images/products/bible.jpg" alt="...">
-						                <div class="card-body">
-						                    <h4 class="card-title">{{ $product->product_name}}</h4>
-						                    <p class="card-text">
-						                        {{ $product->product_description}}
-						                    </p>
-						                    <h4 class="card-title price">{{ number_format($product->price, 2) }}</h4>
-						                    <a href="{{ route('products.show', ['id' => $product->id]) }}" class="btn btn-outline-secondary btn-md">Select</a>
-						                </div>
-						            </div>
-								</div>
-							@endforeach
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+								<div class="card">
+					                <img class="card-img-top" src="/assets/images/products/macbook.jpg" alt="..." class="img-fluid" height="250" width="250">
+					                <div class="card-body">
+					                    <h4 class="card-title">Macbook Pro</h4>
+					                    <p class="card-text">
+					                        This is the latest release macbook
+					                    </p>
+					                    <h4 class="card-title price">52, 000.00</h4>
+					                    <a href="#" class="btn btn-outline-secondary btn-md">Select</a>
+					                </div>
+					            </div>
+							</div>
+
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+								<div class="card">
+					                <img class="card-img-top" src="/assets/images/products/macbook.jpg" alt="..." class="img-fluid" height="250" width="250">
+					                <div class="card-body">
+					                    <h4 class="card-title">Macbook Pro</h4>
+					                    <p class="card-text">
+					                        This is the latest release macbook
+					                    </p>
+					                    <h4 class="card-title price">52, 000.00</h4>
+					                    <a href="#" class="btn btn-outline-secondary btn-md">Select</a>
+					                </div>
+					            </div>
+							</div>
+
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+								<div class="card">
+					                <img class="card-img-top" src="/assets/images/products/macbook.jpg" alt="..." class="img-fluid" height="250" width="250">
+					                <div class="card-body">
+					                    <h4 class="card-title">Macbook Pro</h4>
+					                    <p class="card-text">
+					                        This is the latest release macbook
+					                    </p>
+					                    <h4 class="card-title price">52, 000.00</h4>
+					                    <a href="#" class="btn btn-outline-secondary btn-md">Select</a>
+					                </div>
+					            </div>
+							</div>
+
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+								<div class="card">
+					                <img class="card-img-top" src="/assets/images/products/macbook.jpg" alt="..." class="img-fluid" height="250" width="250">
+					                <div class="card-body">
+					                    <h4 class="card-title">Macbook Pro</h4>
+					                    <p class="card-text">
+					                        This is the latest release macbook
+					                    </p>
+					                    <h4 class="card-title price">52, 000.00</h4>
+					                    <a href="#" class="btn btn-outline-secondary btn-md">Select</a>
+					                </div>
+					            </div>
+							</div>
 						</div>		
 					</div>
 				</div>
