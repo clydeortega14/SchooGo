@@ -6,7 +6,7 @@
 
 <div class="container-fluid">
 	<div class="row justify-content-center">
-		<div class="col-md-12">
+		<div class="col-xs-12 col-sm-12 col-md-12">
 
 			@if(session()->has('success'))
 				<div class="alert alert-success">{{ session('success') }}</div>
@@ -38,19 +38,30 @@
 								@foreach($products as $product)
 									<tr>
 										<td>
-											<img src="{{ asset('/assets/images/products/macbook.jpg') }}" alt="" class="img-fluid" width="50" height="50">
+											<img src="{{ asset('/assets/images/products/'.$product->image) }}" alt="" class="img-fluid" width="70" height="70">
 										</td>
 										<td>{{ $product->product_name }}</td>
-										<td>{{ $product->product_description }}</td>
-										<td>{{ $product->category_id }}</td>
-										<td>{{ $product->department_id }}</td>
-										<td>{{ $product->price }}</td>
+										<td>{{ $product->category->name }}</td>
+										<td>{{ $product->department->name }}</td>
+										<td>{{ $product->presentPrice() }}</td>
 										<td>{{ $product->quantity }}</td>
-										<td>{{ $product->status }}</td>
 										<td>
-											<a href="#" class="btn btn-outline-secondary btn-sm">
-												<i class="fa fa-edit"></i>
-											</a>
+											<span class="{{ $product->status == true ? 'badge badge-success' : 'badge badge-danger' }}">
+												{{ $product->status == true ? 'Available' : 'Out of stock' }}
+											</span>
+										</td>
+										<td>
+											<form action="{{ route('product.destroy', ['id' => $product->id]) }}" method="POST">
+												@method('DELETE')
+
+												@csrf
+												<a href="{{ route('product.edit', ['id' => $product->id]) }}" class="btn btn-outline-secondary btn-sm">
+													<i class="fa fa-edit"></i>
+												</a>
+												<button type="submit" class="btn btn-outline-danger btn-sm">
+													<i class="fa fa-trash"></i>
+												</button>
+											</form>
 										</td>
 									</tr>
 								@endforeach

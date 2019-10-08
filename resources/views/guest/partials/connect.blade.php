@@ -1,4 +1,4 @@
-<div class="container-fluid padding">
+{{-- <div class="container-fluid padding">
     <div class="row padding">
         <div class="col-md-12 col-lg-6">
             <h2>Our Stories</h2>
@@ -9,13 +9,13 @@
         </div>
     </div>
 </div>
-
+ --}}
 
 {{-- CONNECT --}}
 <div class="container-fluid padding">
     <div class="row text-center padding">
         <div class="col-12">
-            <h2>Connect</h2>
+            <h2>Connect Us</h2>
         </div>
 
         <div class="col-12 social padding">

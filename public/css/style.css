@@ -60,10 +60,15 @@ html body {
 
 
 /* ---------- CARDS ------------------*/
-.card-img-top {
+/*.card-img-top {
     
     height: auto;
     max-width: 100%;
+}*/
+
+.card img {
+
+    margin-top: 15px;
 }
 
 

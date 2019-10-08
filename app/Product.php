@@ -10,6 +10,18 @@ class Product extends Model
 
     protected $fillable = ['product_name', 'product_description', 'category_id', 'department_id', 'price', 'image', 'quantity', 'status'];
 
+    public function productData(Array $data)
+    {
+        return [
+
+            'product_name' => $data['name'],
+            'product_description' => $data['description'],
+            'category_id' => $data['category_id'],
+            'department_id' => $data['department_id'], 
+            'price' => $data['price'],
+            'quantity' => $data['quantity'],
+        ];
+    }
 
     public function presentPrice()
     {

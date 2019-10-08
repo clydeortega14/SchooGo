@@ -11,7 +11,19 @@
 |
 */
 
+
+
+/* FOR CUSTOMERS || USERS */
+
 Route::get('/', 'LandingPageController@index')->name('landing.page');
+
+Route::get('guest/view/products', 'ProductsController@guestViewProducts')->name('guest.view.products');
+
+Route::get('guest/view/product', 'ProductsController@guestViewProduct')->name('guest.view.product');
+
+Route::resource('orders', 'OrdersController');
+
+Route::resource('checkout', 'CheckoutController');
 
 Auth::routes();
 
@@ -38,21 +50,19 @@ Route::middleware(['auth'])->group(function(){
 
 	//PRODUCTS
 	Route::get('products', 'ProductsController@index')->name('products.index');
-
 	Route::get('product/create', 'ProductsController@create')->name('product.create');
+	Route::post('product/store', 'ProductsController@store')->name('product.store');
+	Route::get('product/{id}/edit', 'ProductsController@edit')->name('product.edit');
+	Route::put('product/{id}/update', 'ProductsController@update')->name('product.update');
+	Route::delete('product/{id}/destroy', 'ProductsController@destroy')->name('product.destroy');
 
 	//ORDERS
 });
 
-/* FOR CUSTOMERS || USERS */
 
-Route::resource('products', 'ProductsController');
+// Route::resource('products', 'ProductsController');
 
-Route::get('product', 'ProductsController@show');
 
-Route::resource('orders', 'OrdersController');
-
-Route::resource('checkout', 'CheckoutController');
 
 
 /* AJAX */
