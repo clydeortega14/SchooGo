@@ -18,18 +18,16 @@
 			<div class="card">
 				<div class="card-header">
 					@if(count($carts) > 0)
-				
 						<h5>You have ( {{ count($carts) }} ) items in your cart</h5>
 						<hr>
+						<a href="{{ route('guest.products') }}" class="btn btn-outline-secondary btn-sm">Continue Shopping </a>
 					@else
-						
 						<div class="row">
 							<div class="col-sm-12 col-md-12">
 								<h5>You have no items in your cart</h5>
-								<a href="{{ route('products.index') }}" class="btn btn-outline-secondary btn-sm">Go Shopping</a>
+								<a href="{{ route('guest.products') }}" class="btn btn-outline-secondary btn-sm">Go Shopping</a>
 							</div>
-						</div>
-						
+						</div>	
 					@endif
 				</div>
 
@@ -48,52 +46,29 @@
 						    </thead>
 
 						    <tbody>
-
-								<tr>
-									<td>
-										<img src="/assets/images/products/macbook.jpg" alt="..." height="100" width="100" class="img-fluid mx-auto d-block">
-									</td>
-									<td>Macbook Pro 7</td>
-									<td>25,000.00</td>
-									<td>2</td>
-									<td>50,000</td>
-									<td>
-										<a href="#" class="btn btn-outline-danger btn-sm">
-											<i class="fa fa-trash"></i>
-										</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="/assets/images/products/macbook.jpg" alt="..." height="70" width="70" class="img-fluid mx-auto d-block">
-									</td>
-									<td>Macbook Pro 7</td>
-									<td>25,000.00</td>
-									<td>2</td>
-									<td>50,000</td>
-									<td>
-										<a href="#" class="btn btn-outline-danger btn-sm">
-											<i class="fa fa-trash"></i>
-										</a>
-									</td>
-								</tr>
+								@foreach($carts as $cart)
+									<tr>
+										<td>
+											<a href="{{ route('guest.product', ['id' => $cart->products->id]) }}">
+												<img src="{{ asset('/assets/images/products/'. $cart->products->image) }}" alt="..." height="100" width="100" class="img-fluid mx-auto d-block">
+											</a>
+										</td>
+										<td>
+											{{ $cart->products->product_name }} <br>
+											<a href="#">save for later</a>
+										</td>
+										<td> &#8369; {{ $cart->products->presentPrice() }}</td>
+										<td>{{ $cart->quantity }}</td>
+										<td> &#8369; {{ $cart->presentPrice() }}</td>
+										<td>
+											<a href="#" class="btn btn-outline-danger btn-sm">
+												<i class="fa fa-trash"></i>
+											</a>
+										</td>
+									</tr>
+								@endforeach
 						    </tbody>
 						</table>
-					</div>
-
-					<div class="row justify-content-between">
-						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-							<div class="input-group">
-							  	<input type="text" class="form-control" placeholder="Enter Coupon Code">
-							  	<div class="input-group-append">
-							    	<button class="btn btn-secondary" type="button">apply code</button>
-							  	</div>
-							</div>
-						</div>
-
-						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-							<a href="#" class="btn btn-outline-secondary form-control">Update Cart</a>
-						</div>
 					</div>
 
 					<div class="row justify-content-end">
@@ -140,37 +115,5 @@
 			</div>
 		</div>
 	</div>
-
-
 </div>
-
-
-{{-- @foreach($carts as $cart)
-  	<tr>
-        <td>
-        	<a href="{{ route('products.show', $cart->products->id) }}">
-        		<img src="/assets/images/products/bible.jpg" alt="..." height="195" width="195">
-        	</a>
-        </td>
-        <td>
-        	<a href="{{ route('products.show', $cart->products->id) }}">
-        		{{ $cart->products->product_name }}
-        	</a>
-        </td>
-        <td> &#8369; {{ $cart->products->presentPrice() }}</td>
-        <td>{{ $cart->quantity}}</td>
-        <td> &#8369; {{ $cart->presentPrice() }}</td>
-        <td>
-        	<form action="{{ route('orders.destroy', $cart->id) }}" method="POST">
-        		@csrf
-        		@method('DELETE')
-
-	        	<button type="submit" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="delete">
-	        		<i class="fa fa-trash"></i>
-	        	</button>
-        	</form>
-        </td>
-  	</tr>
-	@endforeach --}}
-
 @stop

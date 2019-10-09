@@ -16,7 +16,7 @@
                 </li>
         
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('products.index') }}">Products</a>
+                    <a class="nav-link" href="{{ route('guest.products') }}">Shop</a>
                 </li>
 
                 <li class="nav-item">

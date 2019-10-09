@@ -14,67 +14,18 @@
 
 @section('content')
 
-<div class="container">
+<div class="container-fluid">
 	<div class="row padding">
 
-		<div class="col-md-12">
+		<div class="col-xs-12 col-sm-12 col-md-6">
 			<div class="card">
-				<div class="card-header">
-					<h5 class="card-title">Checkout </h5>
-				</div>
-
 				<div class="card-body">
-					
-					<form action="#" method="POST">
+					<h5 class="card-title">Delivery Address</h5>
+					<hr>
+
+					<div class="container">
 						<div class="row padding">
-							{{-- YOUR CART --}}
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-								<h5>Your Cart</h5>
-								<hr>
-								<ul class="list-group">
-									@foreach($carts as $cart)
-										<li class="list-group-item d-flex justify-content-between align-items-center">
-										    {{ $cart->products->product_name}}
-										    <span> &#8369; {{ $cart->presentPrice() }}</span>
-										  </li>
-									@endforeach
-								</ul>
-								<br>
-								
-								<h5>Shipping</h5>
-								<hr>
-								<ul class="list-group">
-								  	<li class="list-group-item d-flex justify-content-between align-items-center">
-								    	Subtotal
-								    	<span> &#8369; {{ $carts->sum('total') }}</span>
-								  	</li>
-
-									<li class="list-group-item d-flex justify-content-between align-items-center">
-									    Tax
-									    <span class="text-danger"> +  &#8369; {{ $carts->sum('total') * config('app.tax') }}</span>
-									</li>
-
-								  	<li class="list-group-item d-flex justify-content-between align-items-center">
-								    	Total
-								    	<span class="text-success"> &#8369; {{ $carts->sum('total') + ( $carts->sum('total') * config('app.tax') ) }}</span>
-								  	</li>
-								</ul>
-								<br>
-								{{-- <div class="card card-body">
-									<div class="input-group">
-									  	<input type="text" class="form-control d-fex justify-content-right" placeholder="Enter Coupon Code">
-									  	<div class="input-group-append">
-									    	<button class="btn btn-secondary" type="button">APPLY CODE</button>
-									  	</div>
-									</div>
-								</div> --}}
-							</div>
-							
-							{{-- BILLING ADDRESS --}}
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-								<h5>Billing Address</h5>
-								<hr>
-
+							<div class="col-md-12 col-lg-12">
 								<div class="form-group">
 									<label>Firstname</label>
 									<input type="text" name="firstname" class="form-control">
@@ -89,6 +40,7 @@
 									<label>Email</label>
 									<input type="email" name="email" class="form-control">
 								</div>
+
 
 								<div class="form-group">
 									<label>Contact Number</label>
@@ -115,6 +67,87 @@
 									<label>Zip Code</label>
 									<input type="text" name="zip_code" class="form-control">
 								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-12 col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Order Summary</h5>
+					
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Product</th>
+									<th></th>
+									<th>Qty</th>
+									<th>total</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								@foreach($carts as $cart)
+									<tr>
+										<td>
+											<img src="{{ asset('/assets/images/products/'. $cart->products->image) }}" alt="..." height="70" width="70" class="img-fluid mx-auto d-block">
+										</td>
+										<td>{{ $cart->products->product_name }}</td>
+										<td>{{ $cart->quantity }}</td>
+										<td> &#8369; {{ $cart->presentPrice() }}</td>
+									</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+
+					<p class="text-success">Have a coupon code ?</p>
+					<div class="input-group">
+					  	<input type="text" class="form-control" placeholder="Enter Coupon Code">
+					  	<div class="input-group-append">
+					    	<button class="btn btn-secondary" type="button">apply code</button>
+					  	</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+						<ul class="list-group">
+						  	<li class="list-group-item d-flex justify-content-between align-items-center">
+						    	<h6>Subtotal</h6>
+						    	<span> &#8369; {{ $carts->sum('total') }} </span>
+						  	</li>
+
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+							    <h6>Tax</h6>
+							    <span class="text-danger"> +  &#8369; {{ $carts->sum('total') * config('app.tax') }}</span>
+							</li>
+
+						  	<li class="list-group-item d-flex justify-content-between align-items-center">
+						    	<h6>Total</h6>
+						    	<span class="text-success"> &#8369; {{ $carts->sum('total') + ( $carts->sum('total') * config('app.tax') ) }}</span>
+						  	</li>
+						</ul>
+						<br>
+
+						<button class="btn btn-primary btn-md float-right" type="button">ORDER NOW</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{{-- 		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+				</div>
+
+				<div class="card-body">
+					
+					<form action="#" method="POST">
+						<div class="row padding">
 
 								<br>
 
@@ -177,7 +210,7 @@
 					</form>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 	</div>
 </div>
 

@@ -29,7 +29,6 @@ class ProductsController extends Controller
      */
     public function create()
     {
-
         return view('admin.pages.products.create');
     }
 
@@ -68,12 +67,8 @@ class ProductsController extends Controller
      */
     public function show()
     {
-        // $product = Product::findOrFail($id);
 
         return view('guest.pages.products.show');
-        
-            // ->with('products', $this->products)
-            // ->with('product', $product);
     }
 
     /**
@@ -104,7 +99,7 @@ class ProductsController extends Controller
             
         }else{
 
-            $recent = Product::findOrFail($id);
+            $recent   = Product::findOrFail($id);
             $filename = $recent->image;
         }
 
@@ -138,17 +133,5 @@ class ProductsController extends Controller
         $resizeImage->save(public_path('assets/images/products/'.$filename));
 
         return $filename; 
-    }
-
-
-
-    /* GUEST */
-    public function guestViewProducts()
-    {
-        return view('guest.pages.products.index');
-    }
-    public function guestViewProduct()
-    {
-        return view('guest.pages.products.show');
     }
 }

@@ -17,7 +17,7 @@ class CreateDepartmentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id');
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->boolean('status')->default(true);
 
             //foregin key

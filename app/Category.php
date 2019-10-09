@@ -11,4 +11,9 @@ class Category extends Model
     protected $fillable = ['name', 'description', 'status'];
 
     public $timestamps = false;
+
+    public function products()
+    {
+    	return $this->hasMany('App\Product', 'category_id');
+    }
 }

@@ -11,7 +11,6 @@ class OrdersController extends Controller
     public function __construct()
     {
         $this->carts = Cart::orderBy('created_at', 'desc')->get();
-
     }
     /**
      * Display a listing of the resource.
@@ -20,6 +19,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
+
         return view('guest.pages.orders')
 
             ->with('carts', $this->carts);
@@ -70,7 +70,8 @@ class OrdersController extends Controller
             
             'product_id' => $request->prod_id,
             'quantity'   => $request->quantity,
-            'total'      => $total
+            'total'      => $total,
+            'confirmed'  => true
         ]);
 
         return redirect()->route('orders.index')->with('success_message', 'New Item has been added to your cart');
