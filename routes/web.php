@@ -17,22 +17,16 @@
 
 Route::get('/', 'LandingPageController@index')->name('landing.page');
 
-Route::get('guest/products', 'GuestProductsController@index')->name('guest.products');
+Route::get('/shop', 'LandingPageController@shop')->name('shop');
 
-Route::get('guest/product/{id}', 'GuestProductsController@show')->name('guest.product');
+Route::get('/blogs', 'LandingPageController@blogs')->name('blogs');
 
-Route::resource('orders', 'OrdersController');
-
-Route::resource('checkout', 'CheckoutController');
-
+Route::get('/shop/product/{id}', 'GuestProductsController@show')->name('shop.product');
 
 Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
-
-
-	Route::get('/home', 'HomeController@index')->name('home');
-
+	
 	/* FOR ADMIN || SUPERADMIN */
 
 	// CATEGORIES
@@ -73,9 +67,15 @@ Route::middleware(['auth'])->group(function(){
 	//ORDERS
 
 
-/* FOR CUSTOMERS */
+	/* FOR CUSTOMERS */
+	
+	Route::get('/home', 'HomeController@index')->name('home');
 
+	Route::resource('orders', 'OrdersController');
 
+	Route::resource('checkout', 'CheckoutController');
+
+	Route::resource('carts', 'CartController');
 });
 
 /* AJAX */

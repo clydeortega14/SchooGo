@@ -8,10 +8,6 @@ use App\Category;
 
 class GuestProductsController extends Controller
 {
-	public function __construct(){
-
-		$this->middleware('guest');
-	}
     public function index(){
 
     	$products   = Product::inRandomOrder()->take(8)->get();

@@ -1,4 +1,4 @@
-@extends('guest.guest-layout')
+@extends('layouts.app')
 
 @section('title', 'Checkout')
 
@@ -20,12 +20,12 @@
 		<div class="col-xs-12 col-sm-12 col-md-6">
 			<div class="card">
 				<div class="card-body">
-					<h5 class="card-title">Delivery Address</h5>
+					<h5 class="card-title">Your Information</h5>
 					<hr>
 
 					<div class="container">
 						<div class="row padding">
-							<div class="col-md-12 col-lg-12">
+							<div class="col-12">
 								<div class="form-group">
 									<label>Firstname</label>
 									<input type="text" name="firstname" class="form-control">
@@ -106,11 +106,13 @@
 					</div>
 
 					<p class="text-success">Have a coupon code ?</p>
-					<div class="input-group">
-					  	<input type="text" class="form-control" placeholder="Enter Coupon Code">
-					  	<div class="input-group-append">
-					    	<button class="btn btn-secondary" type="button">apply code</button>
-					  	</div>
+					<div class="col-xs-12 col-sm-12">
+						<div class="input-group">
+						  	<input type="text" class="form-control" placeholder="Enter Coupon Code">
+						  	<div class="input-group-append">
+						    	<button class="btn btn-secondary" type="button">apply code</button>
+						  	</div>
+						</div>
 					</div>
 
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

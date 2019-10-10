@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-			<form action="{{ route('orders.store') }}" method="POST">
+			<form action="{{ route('carts.store') }}" method="POST">
 
 				@csrf
 				<input type="hidden" name="prod_id" value="{{ $product->id }}">
@@ -29,14 +29,16 @@
 					<input type="hidden" name="prod_price" value="{{ $product->presentPrice() }}">
 				</h5>
 				<a href="#" class="btn btn-outline-secondary btn-md">view more details</a>
-				<div class="row padding">
-					<div class="col-xs-6 col-sm-6">
-						<input type="number" name="quantity" min="1" value="1" class="form-control input-sm">
+				@if(auth()->user())
+					<div class="row padding">
+						<div class="col-xs-6 col-sm-6">
+							<input type="number" name="quantity" min="1" value="1" class="form-control input-sm">
+						</div>
+						<div class="col-xs-6 col-sm-6">
+							<button type="submit" class="btn btn-outline-secondary btn-md">Add to Cart</button>
+						</div>
 					</div>
-					<div class="col-xs-6 col-sm-6">
-						<button type="submit" class="btn btn-outline-secondary btn-md">Add to Cart</button>
-					</div>
-				</div>
+				@endif
 			</form>
 		</div>
 	</div>

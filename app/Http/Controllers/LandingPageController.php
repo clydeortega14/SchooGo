@@ -3,20 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cart;
 use App\Product;
+use App\Category;
 
 class LandingPageController extends Controller
 {
     public function __construct()
     {
     	$this->middleware('guest');
+
+    	$this->products = Product::inRandomOrder()->take(8)->get();
     }
 
     public function index()
     {
-    	$products   = Product::inRandomOrder()->take(8)->get();
+    	return view('landing-page.home')->with('products', $this->products);
+    }
 
-    	return view('guest.pages.landing-page', compact('products'));
+    public function shop()
+    {
+    	$categories = Category::all();
+
+    	return view('landing-page.pages.shop.index')
+
+    		->with('categories', $categories)
+
+    		->with('products', $this->products);
     }
 }

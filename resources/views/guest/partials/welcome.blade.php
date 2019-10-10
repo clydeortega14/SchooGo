@@ -13,7 +13,7 @@
 
     <div class="row text-center">
     	<div class="col-12">
-    		<a href="{{ route('guest.products') }}" class="btn btn-outline-secondary btn-md">View More Products</a>
+    		<a href="{{ route('shop') }}" class="btn btn-outline-secondary btn-md">View More Products</a>
     	</div>
     </div>
 </div>

@@ -10,7 +10,9 @@
                 {{ $product->product_description == null ? 'No description' : $product->product_description }}
             </p>
             <h6 class="card-title"> &#8369; {{ $product->presentPrice() }}</h6>
+            @auth
             <a href="{{ route('shop.product', ['id' => $product->id]) }}" class="btn btn-outline-secondary btn-md">Select</a>
+            @endauth
 		</div>
 	</div>
 </div>
