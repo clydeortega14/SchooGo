@@ -1,10 +1,15 @@
-@extends('guest.guest-layout')
+@extends('layouts.app')
 
-@section('title', 'Landing Page')
+@section('title', 'Display Product')
 
 @section('content')
 
-@include('guest.partials.jumbotron')
+<nav aria-label="breadcrumb">
+  	<ol class="breadcrumb">
+    	<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+    	<li class="breadcrumb-item active" aria-current="page">{{ $product->product_name }}</li>
+  	</ol>
+</nav>
 
 <div class="container">
 	
@@ -45,4 +50,4 @@
 	</div>
 </div>
 
-@stop
+@endsection

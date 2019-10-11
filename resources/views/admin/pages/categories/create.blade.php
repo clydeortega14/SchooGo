@@ -1,16 +1,25 @@
-@extends('guest.guest-layout')
+@extends('layouts.app')
 
-@section('title', 'Landing Page')
+@section('title', 'Category Create')
 
 @section('content')
 
-
 <div class="container padding">
+	<nav aria-label="breadcrumb">
+	  	<ol class="breadcrumb">
+	    	<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+	    	<li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Categories</a></li>
+	    	<li class="breadcrumb-item active" aria-current="page">Category Create</li>
+	  	</ol>
+	</nav>
+
 	<div class="row justify-content-center">
 		<div class="col-md-8">
 
 			<div class="card">
-				<div class="card-header"></div>
+				<div class="card-header">
+					categories
+				</div>
 
 				<div class="card-body">
 					<form action="{{ isset($category) ? route('category.update', ['id' => $category->id]) : route('category.store') }}" method="POST">
@@ -48,7 +57,7 @@
 					    @endif
 
 						<button type="submit" class="btn btn-primary">{{ isset($category) ? 'UPDATE' : 'SUBMIT' }}</button>
-						<a href="{{ route('categories') }}" class="btn btn-danger">Back</a>
+						<a href="{{ route('categories.index') }}" class="btn btn-danger">Back</a>
 					</form>
 				</div>
 			</div>

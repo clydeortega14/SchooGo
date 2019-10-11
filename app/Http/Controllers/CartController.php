@@ -14,7 +14,9 @@ class CartController extends Controller
      */
     public function index()
     {
-        $carts = Cart::orderBy('created_at', 'desc')->get();
+        $carts = Cart::where('user_id', auth()->user()->id)
+            ->where('confirmed', false)
+            ->orderBy('created_at', 'desc')->get();
         
         return view('guest.pages.carts.index')
 

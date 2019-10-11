@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>SCHOOGO | @yield('title')</title>
 
     <!-- Bootstrap 4.3.1 -->
     <link href="/css/bootstrap.css" rel="stylesheet">
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 <body>
     <div id="app">
@@ -90,5 +90,6 @@
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.js"></script>
     
+    @yield('custom_js')
 </body>
 </html>

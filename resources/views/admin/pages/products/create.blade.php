@@ -1,16 +1,27 @@
-@extends('guest.guest-layout')
+@extends('layouts.app')
 
-@section('title', 'Landing Page')
+@section('title', 'Create Product')
 
 @section('content')
 
 <div class="container-fluid">
+	<nav aria-label="breadcrumb">
+	  	<ol class="breadcrumb">
+	    	<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+	    	<li class="breadcrumb-item"><a href="{{ route('products.index') }}">Products</a></li>
+	    	<li class="breadcrumb-item active" aria-current="page">Create Product</li>
+	  	</ol>
+	</nav>
+
+
 	<div class="row justify-content-center">
 		
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 			
 			<div class="card">
-				<div class="card-header"></div>
+				<div class="card-header">
+					Add Product
+				</div>
 
 				<div class="card-body">
 					<form action="{{ isset($product) ? route('product.update', ['id' => $product->id]) : route('product.store') }}" method="POST" enctype="multipart/form-data">

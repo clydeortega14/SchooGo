@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $table = 'orders';
-    protected $fillable [
+    protected $fillable = [
 
     	'user_id',
     	'shipper',
@@ -33,6 +33,6 @@ class Order extends Model
 
     public function statuses()
     {
-    	return $this->hasOne('status', 'status', 'id');
+    	return $this->hasOne('App\OrderStatus', 'id', 'status');
     }
 }

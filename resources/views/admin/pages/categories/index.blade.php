@@ -1,13 +1,20 @@
-@extends('guest.guest-layout')
+@extends('layouts.app')
 
-@section('title', 'Landing Page')
+@section('title', 'Categories')
 
 @section('content')
 
-
 <div class="container-fluid">
+
+	<nav aria-label="breadcrumb">
+	  	<ol class="breadcrumb">
+	    	<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+	    	<li class="breadcrumb-item active" aria-current="page">Categories</li>
+	  	</ol>
+	</nav>
+
 	<div class="row justify-content-center">
-		<div class="col-md-10">
+		<div class="col-10">
 			@if(session()->has('success'))
 				<div class="alert alert-success" role="alert">{{ session('success') }}</div>
 			@endif
@@ -22,7 +29,7 @@
 				<div class="card-body">
 					
 					<div class="table-responsive">
-						<table class="table table-bordered">
+						<table class="table table-striped">
 							<thead>
 								<tr>
 									<th>Name</th>

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
+use App\User;
+use App\Role;
 
 class OrdersController extends Controller
 {
@@ -13,7 +16,18 @@ class OrdersController extends Controller
      */
     public function index()
     {
+        $orders = Order::where(function($query){
 
+            if(auth()->user()->hasRole('guest') || auth()->user()->hasRole('shipper')){
+
+                $query->where('user_id', auth()->user()->id);
+            }
+
+        })->orderBy('created_at', 'asc')->get();
+
+
+
+        return view('orders.index', compact('orders'));
     }
 
     /**
@@ -34,7 +48,6 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        
         
     }
 
@@ -57,7 +70,11 @@ class OrdersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        $shippers = User::all();
+
+        return view('orders.edit', compact('order', 'shippers'));
     }
 
     /**
@@ -80,8 +97,6 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        Cart::where('id', $id)->delete();
 
-        return back()->with('success_message', 'You have deleted an item in your cart');
     }
 }

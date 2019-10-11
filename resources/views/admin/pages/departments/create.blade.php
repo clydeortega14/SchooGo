@@ -1,10 +1,19 @@
-@extends('guest.guest-layout')
+@extends('layouts.app')
 
 @section('title', 'Landing Page')
 
 @section('content')
 
 <div class="container padding">
+
+	<nav aria-label="breadcrumb">
+	  	<ol class="breadcrumb">
+	    	<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+	    	<li class="breadcrumb-item"><a href="{{ route('departments.index') }}">Departments</a></li>
+	    	<li class="breadcrumb-item active" aria-current="page">Department Create</li>
+	  	</ol>
+	</nav>
+
 	<div class="row justify-content-center">
 		<div class="col-md-8">
 			

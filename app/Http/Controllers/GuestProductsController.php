@@ -8,18 +8,20 @@ use App\Category;
 
 class GuestProductsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
-    	$products   = Product::inRandomOrder()->take(8)->get();
+    	$products   = Product::inRandomOrder()->get();
         $categories = Category::all();
 
-    	return view('guest.pages.products.index', compact('products', 'categories')); 
+    	return view('products.index', compact('products', 'categories')); 
     }
 
-    public function show($id){
+    public function show($id)
+    {
 
     	$product = Product::findOrFail($id);
 
-        return view('guest.pages.products.show', compact('product'));
+        return view('products.show', compact('product'));
     }
 }

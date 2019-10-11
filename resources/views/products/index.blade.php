@@ -1,10 +1,17 @@
-@extends('guest.guest-layout')
+@extends('layouts.app')
 
-@section('title', 'Landing Page')
+@section('title', 'Display Products')
 
 @section('content')
 
 	<div class="container-fluid padding">
+
+		<nav aria-label="breadcrumb">
+		  	<ol class="breadcrumb">
+		    	<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+		    	<li class="breadcrumb-item active" aria-current="page">Shop</li>
+		  	</ol>
+		</nav>
 
 		<div class="row padding">
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -25,7 +32,7 @@
 			    	<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
 						<div class="row padding">
 							@foreach($products as $product)
-								@include('guest.pages.products.partials.product-list')
+								@include('partials.products.list')
 							@endforeach
 						</div>
 			    	</div>
@@ -33,7 +40,7 @@
 				      	<div class="tab-pane fade" id="list-{{ $category->id }}" role="tabpanel" aria-labelledby="list-{{ $category->id }}-list">
 				      		<div class="row padding">
 				      			@foreach($category->products as $product)
-									@include('guest.pages.products.partials.product-list')		
+									@include('partials.products.list')		
 				      			@endforeach
 				      		</div>
 				      	</div>
@@ -42,4 +49,5 @@
 			</div>
 		</div>
 	</div>
-@stop
+
+@endsection

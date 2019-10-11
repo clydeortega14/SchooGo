@@ -4,6 +4,13 @@
 
 @section('content')
 
+<nav aria-label="breadcrumb">
+  	<ol class="breadcrumb">
+    	<li class="breadcrumb-item"><a href="{{ route('display.products') }}">Go back Shopping</a></li>
+    	<li class="breadcrumb-item active" aria-current="page">My Cart</li>
+  	</ol>
+</nav>
+
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col-md-10">
@@ -19,12 +26,12 @@
 					@if(count($carts) > 0)
 						<h5>You have ( {{ count($carts) }} ) items in your cart</h5>
 						<hr>
-						<a href="{{ route('home') }}" class="btn btn-outline-secondary btn-sm">Continue Shopping </a>
+						<a href="{{ route('display.products') }}" class="btn btn-outline-secondary btn-sm">Continue Shopping </a>
 					@else
 						<div class="row">
 							<div class="col-sm-12 col-md-12">
 								<h5>You have no items in your cart</h5>
-								<a href="{{ route('home') }}" class="btn btn-outline-secondary btn-sm">Go Shopping</a>
+								<a href="{{ route('display.products') }}" class="btn btn-outline-secondary btn-sm">Go Shopping</a>
 							</div>
 						</div>	
 					@endif
@@ -67,7 +74,8 @@
 									</tr>
 								@endforeach
 						    </tbody>
-
+							
+							@if(count($carts) > 0)
 						    <tfoot>
 						    	<tr>
 						    		<td></td>
@@ -78,21 +86,24 @@
 						    		<td></td>
 						    	</tr>
 						    </tfoot>
+						    @endif
 						</table>
 					</div>
 
 				</div>
+				
+				@if(count($carts) > 0)
+					<div class="card-footer">
+						<div class="row justify-content-end">
 
-				<div class="card-footer">
-					<div class="row justify-content-end">
-
-						<div class="col-md-6">
-							<div class="float-right">
-								<a href="{{ route('checkout.index') }}" class="btn btn-primary btn-md">Proceed to checkout</a>
+							<div class="col-md-6">
+								<div class="float-right">
+									<a href="{{ route('checkout.index') }}" class="btn btn-primary btn-md">Proceed to checkout</a>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				@endif
 			</div>
 		</div>
 	</div>

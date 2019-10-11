@@ -27,10 +27,12 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
 	
+	Route::get('/home', 'HomeController@index')->name('home');
+
 	/* FOR ADMIN || SUPERADMIN */
 
 	// CATEGORIES
-	Route::get('categories', 'CategoriesController@index')->name('categories');
+	Route::get('categories', 'CategoriesController@index')->name('categories.index');
 
 	Route::get('category/create', 'CategoriesController@create')->name('category.create');
 
@@ -41,7 +43,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::put('category/{id}/update', 'CategoriesController@update')->name('category.update');
 
 	//DEPARTMENTS
-	Route::get('departments', 'DepartmentsController@index')->name('departments');
+	Route::get('departments', 'DepartmentsController@index')->name('departments.index');
 
 	Route::get('department/create', 'DepartmentsController@create')->name('department.create');
 
@@ -68,8 +70,9 @@ Route::middleware(['auth'])->group(function(){
 
 
 	/* FOR CUSTOMERS */
-	
-	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/display/products', 'GuestProductsController@index')->name('display.products');
+
+	Route::get('/display/product/{id}', 'GuestProductsController@show')->name('display.product.show');
 
 	Route::resource('orders', 'OrdersController');
 
