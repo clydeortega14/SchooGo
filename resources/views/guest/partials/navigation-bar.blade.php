@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     
     <div class="container">
         <a class="navbar-brand" href="{{ route('landing.page') }}">
-            <h3 class="text-secondary">LARAVEL</h3>
+            LARAVEL
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,11 +16,19 @@
                 </li>
         
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('shop') }}">Shop</a>
+                    <a class="nav-link" href="">Services</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Blogs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Connect</a>
                 </li>
             </ul>
 
