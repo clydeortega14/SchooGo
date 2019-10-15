@@ -31,7 +31,7 @@ class CategoriesController extends Controller
     	//create
     	Category::create($request->all());
 
-    	return redirect()->route('categories')->with('success', 'Successfully added');
+    	return redirect()->route('categories.index')->with('success', 'Successfully added');
     }
     public function edit($id)
     {
@@ -48,7 +48,7 @@ class CategoriesController extends Controller
     		'status' => $request->category_status
     	]);
 
-    	return redirect()->route('categories')->with('success', 'Successfully updated');
+    	return redirect()->route('categories.index')->with('success', 'Successfully updated');
     }
 
     public function getCategoryDept($id)

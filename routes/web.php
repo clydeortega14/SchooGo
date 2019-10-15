@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::put('category/{id}/update', 'CategoriesController@update')->name('category.update');
 
 	//DEPARTMENTS
-	Route::get('departments', 'DepartmentsController@index')->name('departments.index');
+	Route::get('departments', 'DepartmentsController@index')->name('departments');
 
 	Route::get('department/create', 'DepartmentsController@create')->name('department.create');
 
