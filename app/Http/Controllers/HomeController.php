@@ -29,6 +29,6 @@ class HomeController extends Controller
         $products   = Product::inRandomOrder()->take(8)->get();
         $categories = Category::all();
 
-        return view('layouts.master', compact('products', 'categories'));
+        return view('home', compact('products', 'categories'));
     }
 }

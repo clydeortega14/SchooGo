@@ -9,8 +9,8 @@
 <div class="container-fluid">
     <div class="row jumbotron justify-content-center text-center">
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-10">
-            <h1 class="display-4">Welcome to SchooGo</h1>
-            <p class="lead">
+            <h1 class="display-2 text-success">Welcome to SchooGo</h1>
+            <p class="lead text-success">
                 The newest online book and school supplies purchasing and printing services
             </p>
             <button type="button" class="btn btn-outline-secondary btn-md">Get Started</button>
@@ -54,7 +54,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
 <br>
