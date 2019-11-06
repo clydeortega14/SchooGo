@@ -96,7 +96,6 @@
 	
 	$(function(){
 
-
 		//DEPARTMENT DROPDOWN
 
 		$('select[name="category_id"]').on('change', function(){

@@ -8,7 +8,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{ auth()->user()->email }}</p>
+          <p>{{ auth()->user()->username }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -27,11 +27,12 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview menu-open">
-          <a href="#">
+        <li>
+          <a href="{{ route('home') }}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
+        @if(auth()->user()->hasRole('admin'))
         <li class="treeview">
           <a href="#">
             <i class="fa fa-users"></i>
@@ -41,29 +42,31 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Users</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Roles</a></li>
-            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i>Permissions</a></li>
+            <li><a href="{{ route('users.index') }}"><i class="fa fa-circle-o"></i>Users</a></li>
+            <li><a href="{{ route('roles.index') }}"><i class="fa fa-circle-o"></i>Roles</a></li>
+            <li><a href="{{ route('permissions.index') }}"><i class="fa fa-circle-o"></i>Permissions</a></li>
           </ul>
         </li>
 
-        <li class="active treeview menu-open">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Categories</span>
+        <li>
+          <a href="{{ route('categories.index') }}">
+            <i class="fa fa-dashboard"></i> 
+            <span>Categories</span>
           </a>
         </li>
 
-        <li class="active treeview menu-open">
-          <a href="#">
+        <li>
+          <a href="{{ route('departments') }}">
             <i class="fa fa-dashboard"></i> <span>Departments</span>
           </a>
         </li>
 
-        <li class="active treeview menu-open">
-          <a href="#">
+        <li>
+          <a href="{{ route('products.index') }}">
             <i class="fa fa-dashboard"></i> <span>Products</span>
           </a>
         </li>
+        @endif
 
         <li class="active treeview menu-open">
           <a href="#">

@@ -18,8 +18,13 @@ class ProductsController extends Controller
     {
         $products = Product::orderBy('created_at', 'desc')->get();
 
-        return view('admin.pages.products.index', compact('products'));
-        
+        if(auth()->user()->hasRole('admin')){
+            return view('admin.pages.products.index', compact('products'));
+        }else{
+
+            $categories = Category::all();
+            return view('products.index', compact('products', 'categories'));
+        }
     }
 
     /**
@@ -41,7 +46,6 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         /* VALIDATION */
-
         /* CHECK IF REQUEST HAS FILE */
         if($request->hasFile('image')){
 
@@ -109,18 +113,41 @@ class ProductsController extends Controller
         return redirect()->route('products.index')->with('success', 'product successfully updated');
     }
 
+    public function twoMethods(Request $request, $id){
+
+        if($request->has('product_update_status')){
+
+            $this->updateStatus($id);
+            return redirect()->route('products.index')->with('success', 'status updated');
+
+        }else if($request->has('delete_product')){
+
+            $this->destroy($id);
+            return redirect()->route('products.index');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    protected function destroy($id)
     {
         $product = Product::where('id', $id)->first();
         $product->delete();
+    }
 
-        return redirect()->route('products.index');
+    protected function updateStatus($id)
+    {
+        $product = Product::findOrFail($id);
+        if($product->status == true){
+            $product->update(['status' => false]);
+        }else{
+            $product->update(['status' => true]);
+        }
+
     }
 
     protected function productImage($image){

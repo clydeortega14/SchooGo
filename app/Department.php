@@ -12,6 +12,14 @@ class Department extends Model
 
     public $timestamps = false;
 
+    public function departmentData(Array $data)
+    {
+    	return [
+    		'category_id' => $data['category'],
+   			'name' => $data['name'],
+   			'description' => $data['description'],
+    	];
+    }
     public function category()
     {
     	return $this->belongsTo('App\Category', 'category_id', 'id');

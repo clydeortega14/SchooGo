@@ -15,10 +15,6 @@ class CategoriesController extends Controller
 
     	return view('admin.pages.categories.index', compact('categories'));
     }
-    public function create()
-    {
-    	return view('admin.pages.categories.create');
-    }
     public function store(Request $request)
     {
     	//validation
@@ -36,8 +32,11 @@ class CategoriesController extends Controller
     public function edit($id)
     {
     	$category = Category::findOrFail($id);
+        $categories = Category::all();
 
-    	return view('admin.pages.categories.create')->with('category', $category);
+    	return view('admin.pages.categories.index')
+            ->with('categories', $categories)
+            ->with('category', $category);
     }
     public function update(Request $request, $id)
     {
@@ -45,7 +44,7 @@ class CategoriesController extends Controller
 
     		'name' => $request->name,
     		'description' => $request->description,
-    		'status' => $request->category_status
+    		'status' => 1
     	]);
 
     	return redirect()->route('categories.index')->with('success', 'Successfully updated');
@@ -56,5 +55,19 @@ class CategoriesController extends Controller
         $departments = Department::where('category_id', $id)->where('status', true)->get();
 
         return response()->json(['departments' => $departments]);
+    }
+
+    public function statusUpdate($id){
+        $category = Category::findOrFail($id);
+
+        if($category->status == true){
+
+            $category->update(['status' => false]);
+        }else{
+
+            $category->update(['status' => true]);
+        }
+
+        return redirect()->route('categories.index');
     }
 }
